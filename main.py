@@ -13,9 +13,9 @@ def extract_character(image, rec = 0):
     thresh = cv2.resize(image, dim, interpolation = cv2.INTER_AREA)  
     thresh=cv2.GaussianBlur(thresh, (3,3), 0)
 
-    _,thresh=cv2.threshold(thresh,0,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+    _,thresh=cv2.threshold(thresh,0,255,cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU) #threshold is 0 and output value is 255 
     
-    kernel1 = np.ones((3,3), dtype= np.uint8)
+    kernel1 = np.ones((3,3), dtype= np.uint8) #numpy.ones(shape, dtype = None, order = 'C')
     thresh = cv2.dilate(thresh, kernel1, iterations = 1)
     cv2.imshow('thresh',thresh)
     cv2.waitKey(0)
